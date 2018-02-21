@@ -13,6 +13,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+/*import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+*/
 
 import Bean.Article;
 import Bean.Source;
@@ -85,3 +91,18 @@ class JsonEncodeDemo {
 		    return sb.toString();
 		  }
 	}
+
+
+/*@RequestMapping(value = "/api", method = RequestMethod.GET)
+public ResponseEntity<?> fetchWellData(){
+    try{
+    	Activity a = new Activity();
+    	a.setActivityId(1);
+    	a.setName("raju");
+System.out.println(a);
+        return new ResponseEntity(a, HttpStatus.OK);
+    }catch(Exception ex){
+        String errorMessage;
+        errorMessage = ex + " <== error";
+        return new ResponseEntity(errorMessage, HttpStatus.BAD_REQUEST);
+    }*/
