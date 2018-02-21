@@ -4,15 +4,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
+
 
 public class Parse2 {
 	
 	public static void  main(String args[]) {
 		
+	
 		String data=JavaProgram.getData();
-		try {
+		try { 
 			JSONObject js = new JSONObject(data);
 			JSONArray ja= js.getJSONObject("body").getJSONArray("Recommendations");
 			for(int i=0;i<=ja.length()-1;i++)
@@ -41,7 +41,7 @@ public class Parse2 {
 						 			//System.out.println("->"+children.get("name"));
 						 		
 						 			getChildren(children,1);
-						 			System.out.println("here");
+						 			//System.out.println("here");
 						 			
 						 			}
 						 		
@@ -71,10 +71,11 @@ static void getChildren(JSONObject children,int len) throws JSONException
 		JSONObject subchild = subchildList.getJSONObject(i);
 		if(!subchild.get("children").equals(""))
 		{
-		getChildren(subchild, len+1);
-		}else
-		{
-			//System.out.println(">"+subchild.get("name"));
+			//System.out.println();
+		 if(subchild.get("selected").toString().equals("1"))
+		 {
+		 getChildren(subchild, len+1);
+		 }
 		}
 	}
 

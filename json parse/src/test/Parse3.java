@@ -5,7 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class This {
+
+public class Parse3 {
 	
 	public static void  main(String args[]) {
 		
@@ -14,9 +15,8 @@ public class This {
 		try { 
 			JSONObject js = new JSONObject(data);
 			JSONArray ja= js.getJSONObject("body").getJSONArray("Recommendations");
-			for(int i=0;i<=ja.length()-1;i++)
-			{
-				JSONObject recommendations=ja.getJSONObject(i);
+			
+				JSONObject recommendations=ja.getJSONObject(0);
 				System.out.println(recommendations.get("RestaurantName"));
 		
 					//System.out.println();
@@ -48,7 +48,7 @@ public class This {
 						}	
 					}
 				
-			}
+			
 			
 			
 		} catch (JSONException e) {
@@ -70,11 +70,10 @@ static void getChildren(JSONObject children,int len) throws JSONException
 		JSONObject subchild = subchildList.getJSONObject(i);
 		if(!subchild.get("children").equals(""))
 		{
-			//System.out.println();
-		 if(subchild.get("selected").toString().equals("1"))
-		 {
-		 getChildren(subchild, len+1);
-		 }
+		getChildren(subchild, len+1);
+		}else
+		{
+			//System.out.println(">"+subchild.get("name"));
 		}
 	}
 
